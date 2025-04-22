@@ -1,0 +1,32 @@
+{
+  "name": "@nvwa-js/shared",
+  "version": "0.0.0",
+  "description": "通用工具函数和类型定义",
+  "main": "index.js",
+  "module": "dist/shared.esm-bundler.js",
+  "types": "dist/shared.d.ts",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/shared.d.ts",
+      "node": {
+        "production": "./dist/shared.cjs.prod.js",
+        "development": "./dist/shared.cjs.js",
+        "default": "./index.js"
+      },
+      "module": "./dist/shared.esm-bundler.js",
+      "import": "./dist/shared.esm-bundler.js",
+      "require": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "buildOptions": {
+    "formats": [
+      "esm",
+      "cjs"
+    ]
+  }
+}

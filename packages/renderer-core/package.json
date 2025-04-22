@@ -1,0 +1,39 @@
+{
+  "name": "@nvwa-js/renderer-core",
+  "version": "0.0.0",
+  "description": "通用工具函数和类型定义",
+  "main": "index.js",
+  "module": "dist/renderer-core.esm-bundler.js",
+  "types": "dist/renderer-core.d.ts",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/renderer-core.d.ts",
+      "node": {
+        "production": "./dist/renderer-core.cjs.prod.js",
+        "development": "./dist/renderer-core.cjs.js",
+        "default": "./index.js"
+      },
+      "module": "./dist/renderer-core.esm-bundler.js",
+      "import": "./dist/renderer-core.esm-bundler.js",
+      "require": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "buildOptions": {
+    "formats": [
+      "esm",
+      "cjs"
+    ]
+  },
+  "dependencies": {
+    "@nvwa-js/shared": "workspace:^",
+    "react": "catalog:"
+  },
+  "devDependencies": {
+    "@types/react": "catalog:"
+  }
+}
