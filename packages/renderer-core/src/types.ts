@@ -64,3 +64,13 @@ export type IBaseRendererInstance = IGeneralComponent<
 export interface IBaseRenderComponent {
   new (props: IBaseRendererProps, context: any): IBaseRendererInstance
 }
+
+export interface IRendererModules {
+  BaseRenderer?: IBaseRenderComponent
+  PageRenderer: IBaseRenderComponent
+  ComponentRenderer: IBaseRenderComponent
+  BlockRenderer?: IBaseRenderComponent
+  AddonRenderer?: IBaseRenderComponent
+  TempRenderer?: IBaseRenderComponent
+  DivRenderer?: IBaseRenderComponent
+}

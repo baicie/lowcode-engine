@@ -9,3 +9,11 @@ declare var __CJS__: boolean
 declare var __SSR__: boolean
 declare var __VERSION__: string
 declare var __COMPAT__: boolean
+
+declare global {
+  interface Window {
+    __appContext: any
+  }
+}
+
+export {}
