@@ -1,4 +1,4 @@
-import adapter from './adapter'
-import contextFactory from './context'
+export { adapter } from './adapter'
+export { contextFactory, type ContextType } from './context'
 
-export { adapter, contextFactory }
+export { baseRendererFactory } from './renderer/base'

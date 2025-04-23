@@ -1,6 +1,8 @@
-import adapter from '../adapter'
+import { adapter } from '../adapter'
 
-export default function contextFactory(): any {
+export type ContextType = any
+
+export function contextFactory(): ContextType {
   const { createContext } = adapter.getRuntime()
 
   let context = window.__appContext

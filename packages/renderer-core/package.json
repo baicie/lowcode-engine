@@ -31,9 +31,11 @@
   },
   "dependencies": {
     "@nvwa-js/shared": "workspace:^",
+    "prop-types": "^15.8.1",
     "react": "catalog:"
   },
   "devDependencies": {
+    "@types/prop-types": "^15.7.14",
     "@types/react": "catalog:"
   }
 }

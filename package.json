@@ -1,6 +1,7 @@
 {
   "name": "root",
   "private": true,
+  "packageManager": "pnpm@10.9.0",
   "type": "module",
   "scripts": {
     "dev": "node scripts/dev.js",
@@ -14,7 +15,22 @@
     "test": "vitest",
     "test-unit": "vitest --project unit"
   },
-  "packageManager": "pnpm@10.9.0",
+  "simple-git-hooks": {
+    "pre-commit": "pnpm lint-staged && pnpm check",
+    "commit-msg": "node scripts/verify-commit.js"
+  },
+  "lint-staged": {
+    "*.{js,json}": [
+      "prettier --write"
+    ],
+    "*.ts?(x)": [
+      "eslint --fix",
+      "prettier --parser=typescript --write"
+    ]
+  },
+  "engines": {
+    "node": ">=18.12.0"
+  },
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.1",
     "@rollup/plugin-commonjs": "^28.0.3",
@@ -24,9 +40,12 @@
     "@swc/core": "^1.11.21",
     "@types/node": "^22.14.1",
     "@vitest/eslint-plugin": "^1.1.43",
+    "esbuild": "^0.25.3",
+    "esbuild-plugin-polyfill-node": "^0.3.0",
     "eslint": "^9.25.1",
     "eslint-plugin-import-x": "^4.10.6",
     "jsdom": "^26.1.0",
+    "lint-staged": "^15.5.1",
     "magic-string": "^0.30.17",
     "picocolors": "^1.1.1",
     "prettier": "^3.5.3",
@@ -35,6 +54,7 @@
     "rollup-plugin-dts": "^6.2.1",
     "rollup-plugin-esbuild": "^6.2.1",
     "rollup-plugin-polyfill-node": "^0.13.0",
+    "simple-git-hooks": "^2.12.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.31.0",
     "vitest": "^3.1.2"

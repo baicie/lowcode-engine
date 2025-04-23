@@ -1,3 +1,4 @@
+import type { ContextType } from '../context'
 import type { IGeneralConstructor, IRendererModules } from '../types'
 
 enum FrameType {
@@ -8,6 +9,12 @@ enum FrameType {
 
 interface IRuntime {
   [key: string]: any
+  Component: IGeneralConstructor
+  PureComponent: IGeneralConstructor
+  createElement: (...args: any) => any
+  createContext: (...args: any) => ContextType
+  forwardRef: (...args: any) => any
+  findDOMNode: (...args: any) => any
 }
 
 class Adapter {
@@ -115,6 +122,4 @@ class Adapter {
   }
 }
 
-const defaultAdapter: Adapter = new Adapter()
-
-export default defaultAdapter
+export const adapter: Adapter = new Adapter()

@@ -10,9 +10,11 @@ declare var __SSR__: boolean
 declare var __VERSION__: string
 declare var __COMPAT__: boolean
 
+import type { ContextType } from './renderer-core/src/context'
+
 declare global {
   interface Window {
-    __appContext: any
+    __appContext: ContextType
   }
 }
 

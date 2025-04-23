@@ -1,4 +1,5 @@
 import type { CSSProperties, ComponentLifecycle } from 'react'
+import type { ContextType } from './context'
 
 interface IGeneralComponent<P = Recordable<any>, S = Recordable<any>, SS = any>
   extends ComponentLifecycle<P, S, SS> {
@@ -16,7 +17,7 @@ interface IGeneralComponent<P = Recordable<any>, S = Recordable<any>, SS = any>
   render(): any
 }
 
-type Recordable<T> = {
+export type Recordable<T> = {
   [key: string]: T
 }
 
@@ -24,9 +25,9 @@ export type IGeneralConstructor<
   T = Recordable<any>,
   S = Recordable<any>,
   D = any,
-> = new <TT = T, SS = S, DD = D>(
+> = new <TT extends T = T, SS extends S = S, DD extends D = D>(
   props: TT,
-  context: any,
+  context: ContextType,
 ) => IGeneralComponent<TT, SS, DD>
 
 export interface IBaseRendererProps {
