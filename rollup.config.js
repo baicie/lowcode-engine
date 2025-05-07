@@ -137,11 +137,8 @@ function createConfig(format, output, plugins = []) {
       __CJS__: String(isCJSBuild),
       // need SSR-specific branches?
       // __SSR__: String(!isGlobalBuild),
-    }
-
-    if (!isESMBuild) {
-      // hard coded dev/prod builds
-      replacements.__DEV__ = String(!isProductionBuild)
+      // development mode
+      __DEV__: String(!isProductionBuild),
     }
 
     // allow inline overrides like
@@ -204,7 +201,7 @@ function createConfig(format, output, plugins = []) {
     } else {
       const res = [
         ...Object.keys(pkg.dependencies || {})?.filter(
-          dep => !packageOptions.inline?.includes(dep)
+          dep => !packageOptions.inline?.includes(dep),
         ),
         ...Object.keys(pkg.peerDependencies || {}),
         ...treeShakenDeps,
@@ -299,6 +296,6 @@ function createMinifiedConfig(/** @type {PackageFormat} */ format) {
           return { code: banner + code, map: null }
         },
       },
-    ]
+    ],
   )
 }

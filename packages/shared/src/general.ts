@@ -33,7 +33,7 @@ export const remove = <T>(arr: T[], el: T): void => {
 const hasOwnProperty = Object.prototype.hasOwnProperty
 export const hasOwn = (
   val: object,
-  key: string | symbol
+  key: string | symbol,
 ): key is keyof typeof val => hasOwnProperty.call(val, key)
 
 export const isArray: typeof Array.isArray = Array.isArray
@@ -85,12 +85,12 @@ export const isReservedProp: (key: string) => boolean = /*@__PURE__*/ makeMap(
   ',key,ref,ref_for,ref_key,' +
     'onVnodeBeforeMount,onVnodeMounted,' +
     'onVnodeBeforeUpdate,onVnodeUpdated,' +
-    'onVnodeBeforeUnmount,onVnodeUnmounted'
+    'onVnodeBeforeUnmount,onVnodeUnmounted',
 )
 
 export const isBuiltInDirective: (key: string) => boolean =
   /*@__PURE__*/ makeMap(
-    'bind,cloak,else-if,else,for,html,if,model,on,once,pre,show,slot,text,memo'
+    'bind,cloak,else-if,else,for,html,if,model,on,once,pre,show,slot,text,memo',
   )
 
 const cacheStringFunction = <T extends (str: string) => string>(fn: T): T => {
@@ -108,7 +108,7 @@ const camelizeRE = /-(\w)/g
 export const camelize: (str: string) => string = cacheStringFunction(
   (str: string): string => {
     return str.replace(camelizeRE, (_, c) => (c ? c.toUpperCase() : ''))
-  }
+  },
 )
 
 const hyphenateRE = /\B([A-Z])/g
@@ -116,7 +116,7 @@ const hyphenateRE = /\B([A-Z])/g
  * @private
  */
 export const hyphenate: (str: string) => string = cacheStringFunction(
-  (str: string) => str.replace(hyphenateRE, '-$1').toLowerCase()
+  (str: string) => str.replace(hyphenateRE, '-$1').toLowerCase(),
 )
 
 /**
@@ -131,12 +131,12 @@ export const capitalize: <T extends string>(str: T) => Capitalize<T> =
  * @private
  */
 export const toHandlerKey: <T extends string>(
-  str: T
+  str: T,
 ) => T extends '' ? '' : `on${Capitalize<T>}` = cacheStringFunction(
   <T extends string>(str: T) => {
     const s = str ? `on${capitalize(str)}` : ``
     return s as T extends '' ? '' : `on${Capitalize<T>}`
-  }
+  },
 )
 
 // compare whether a value has changed, accounting for NaN.
@@ -153,7 +153,7 @@ export const def = (
   obj: object,
   key: string | symbol,
   value: any,
-  writable = false
+  writable = false,
 ): void => {
   Object.defineProperty(obj, key, {
     configurable: true,
@@ -192,12 +192,12 @@ export const getGlobalThis = (): any => {
       typeof globalThis !== 'undefined'
         ? globalThis
         : typeof self !== 'undefined'
-        ? self
-        : typeof window !== 'undefined'
-        ? window
-        : typeof global !== 'undefined'
-        ? global
-        : {})
+          ? self
+          : typeof window !== 'undefined'
+            ? window
+            : typeof global !== 'undefined'
+              ? global
+              : {})
   )
 }
 
@@ -213,7 +213,7 @@ export function genCacheKey(source: string, options: any): string {
   return (
     source +
     JSON.stringify(options, (_, val) =>
-      typeof val === 'function' ? val.toString() : val
+      typeof val === 'function' ? val.toString() : val,
     )
   )
 }

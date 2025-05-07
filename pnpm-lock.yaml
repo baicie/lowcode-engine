@@ -96,6 +96,12 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2(@types/debug@4.1.12)(@types/node@22.14.1)(jsdom@26.1.0)(tsx@4.19.3)(yaml@2.7.1)
 
+  packages/editor-core:
+    dependencies:
+      '@nvwa-js/shared':
+        specifier: workspace:*
+        version: link:../shared
+
   packages/renderer-core:
     dependencies:
       '@nvwa-js/shared':

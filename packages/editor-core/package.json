@@ -1,0 +1,35 @@
+{
+  "name": "@nvwa-js/editor-core",
+  "version": "0.0.0",
+  "description": "编辑器核心",
+  "main": "index.js",
+  "module": "dist/editor-core.esm-bundler.js",
+  "types": "dist/editor-core.d.ts",
+  "files": [
+    "index.js",
+    "dist"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/editor-core.d.ts",
+      "node": {
+        "production": "./dist/editor-core.cjs.prod.js",
+        "development": "./dist/editor-core.cjs.js",
+        "default": "./index.js"
+      },
+      "module": "./dist/editor-core.esm-bundler.js",
+      "import": "./dist/editor-core.esm-bundler.js",
+      "require": "./index.js"
+    },
+    "./*": "./*"
+  },
+  "buildOptions": {
+    "formats": [
+      "esm",
+      "cjs"
+    ]
+  },
+  "dependencies": {
+    "@nvwa-js/shared": "workspace:*"
+  }
+}

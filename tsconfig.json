@@ -19,25 +19,18 @@
     "removeComments": false,
     "jsx": "preserve",
     "lib": ["es2016", "dom"],
-    "types": [
-      "vitest/globals",
-      // "puppeteer",
-      "node"
-    ],
+    "types": ["vitest/globals", "node"],
     "rootDir": ".",
     "paths": {
-      "@zeus-js/*": ["packages/*/src"]
+      "@nvwa-js/*": ["packages/*/src"]
     },
     "isolatedDeclarations": true,
-    "composite": true,
-    "emitDecoratorMetadata": true
+    "composite": true
   },
   "include": [
     "packages/global.d.ts",
     "packages/*/src",
     "packages/*/__tests__",
-    "packages/vue/jsx-runtime",
-    "packages/runtime-dom/types/jsx.d.ts",
     "scripts/*",
     "rollup.*.js"
   ]
